@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Start Page</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script lang="javascript" type="text/javascript">
+            var echo_websocket;
+
+            function init() {
+                output = document.getElementById("output")
+            }
+            function send_echo() {
+                var wsUri = "ws://" + document.location.host + document.location.pathname + "echo";
+                writeToScreen("Conection to:" + wsUri);
+                echo_websocket = new WebSocket(wsUri);
+                echo_websocket.onopen = function(evt) {
+                    writeToScreen("Conected!!!");
+                    doSend(document.forms[0].textId.value);
+                    writeToScreen("-----------");
+                };
+                echo_websocket.onmessage = function(evt) {
+                    writeToScreen("Received message: " + evt.data);
+                    echo_websocket.close();
+                };
+                echo_websocket.onerror = function(evt) {
+                    writeToScreen('<span style="color: red;">ERROR</span>' + evt.data);
+                    echo_websocket.close();
+                };
+
+            }//send_echo
+
+            function doSend(message) {
+                echo_websocket.send(message);
+                writeToScreen("Send Message: " + message);
+            }
+
+            function writeToScreen(message) {
+                var pre = document.createElement("p");
+                pre.style.wordWrap = "break-word";
+                pre.innerHTML = message;
+                output.appendChild(pre);
+            }
+            window.addEventListener("load", init, false);
+        </script>
+
+
+    </head>
+    <body>
+        <h1> Websocket javaScript Client.</h1>
+
+        <div style="text-align: left;">
+            <form name="form1" id="form1" action="">                
+                <input onclick="send_echo()" value="Press to send" type="button"/>
+                <input id="textId" name="message" value="Hello WebSocket!" type="text"/>
+                <br/>
+            </form>
+        </div>
+        <div id="output"></div>
+    </body>
+</html>

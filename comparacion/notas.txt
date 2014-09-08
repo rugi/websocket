@@ -1,0 +1,7 @@
+Creacion de proyecto vacio
+	mvn archetype:generate -DgroupId=org.codigoambar.websocket -DartifactId=websocketServer -DarchetypeArtifactId=maven-archetype-webapp
+Este proyecto es el un proyecto vacio, y se le adiciona:
+1) Un servlet que devuelve JSON con un mensaje, 
+2) Una pagina HTML que realiza lo mismo que el "vacio" pero usando AJAX via JQuery.
+
+
