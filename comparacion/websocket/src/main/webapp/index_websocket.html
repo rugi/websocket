@@ -9,8 +9,11 @@
             function init() {
                 output = document.getElementById("output")
             }
+
             function send_echo() {
-                var wsUri = "ws://" + document.location.host + document.location.pathname + "echo";
+                var preURI = document.location.host + document.location.pathname + "echo";
+                var p = preURI.lastIndexOf("/");
+                var wsUri = "ws://" + preURI.substring(0, p + 1) + "echo";
                 writeToScreen("Conection to:" + wsUri);
                 echo_websocket = new WebSocket(wsUri);
                 echo_websocket.onopen = function(evt) {
@@ -46,7 +49,7 @@
 
     </head>
     <body>
-        <h1>  </h1>
+        <h1> Websocket javaScript Client.</h1>
 
         <div style="text-align: left;">
             <form name="form1" id="form1" action="">                
