@@ -33,10 +33,11 @@ public class EchoServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("application/json;charset=UTF-8");
-        System.out.println("Invocacion del servlet");
-        try (PrintWriter out = response.getWriter()) {
+        String value = request.getParameter("text")==null?"NA":request.getParameter("text");
+        System.out.println("Invocacion del servlet con el valor:"+value);
+        try (PrintWriter out = response.getWriter()) {                        
             StringBuilder r = new StringBuilder();
-            r.append("{\"mensaje\":\"El mensaje\"}");
+            r.append("{\"mensaje\":\"Hola! He recibido el parametro "+ value +" \"}");
             out.println(r.toString());            
         }
     }

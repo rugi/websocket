@@ -10,6 +10,8 @@
             //-- Ejemplo tomado del sitio oficial de jquery.
             ///  http://learn.jquery.com/ajax/jquery-ajax-methods/
             function invoque_ajax() {
+                var texto = document.forms[0].textId.value;
+                alert(texto);
                 var _url= "http://" + document.location.host + document.location.pathname + "echo";
                 alert("Ajax invocation:"+_url);
                 // Using the core $.ajax() method
@@ -19,7 +21,7 @@
                     url: _url,
                     // the data to send (will be converted to a query string)
                     data: {
-                        id: 123
+                        text: texto
                     },
                     // whether this is a POST or GET request
                     type: "GET",
