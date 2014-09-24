@@ -7,13 +7,16 @@
         <script lang="javascript" type="text/javascript" src="js/jquery-2.1.1.min.js">
         </script>
         <script>
-
+            //-- Ejemplo tomado del sitio oficial de jquery.
+            ///  http://learn.jquery.com/ajax/jquery-ajax-methods/
             function invoque_ajax() {
-                alert("Ajax invocation");
+                var _url= "http://" + document.location.host + document.location.pathname + "echo";
+                alert("Ajax invocation:"+_url);
                 // Using the core $.ajax() method
                 $.ajax({
                     // the URL for the request
-                    url: "http://localhost:8080/websocket-1.0/echo",
+                    //url: "http://localhost:8080/websocket-1.0/echo",
+                    url: _url,
                     // the data to send (will be converted to a query string)
                     data: {
                         id: 123
@@ -25,8 +28,8 @@
                     // code to run if the request succeeds;
                     // the response is passed to the function
                     success: function(json) {
-                        $("<h1/>").text(json.title).appendTo("body");
-                        $("<div class=\"content\"/>").html(json.html).appendTo("body");
+                        $("<p>").text(json.mensaje).appendTo("body");                        
+                        //writeToScreen(json.mensaje);
                     },
                     // code to run if the request fails; the raw request and
                     // status codes are passed to the function
@@ -42,49 +45,8 @@
                     }
                 });
             }
-        </script>        
-
-        <script lang="javascript" type="text/javascript">
-            var echo_websocket;
-
-            function init() {
-                output = document.getElementById("output")
-            }
-            function send_echo() {
-                var wsUri = "ws://" + document.location.host + document.location.pathname + "echo";
-                writeToScreen("Conection to:" + wsUri);
-                echo_websocket = new WebSocket(wsUri);
-                echo_websocket.onopen = function(evt) {
-                    writeToScreen("Conected!!!");
-                    doSend(document.forms[0].textId.value);
-                    writeToScreen("-----------");
-                };
-                echo_websocket.onmessage = function(evt) {
-                    writeToScreen("Received message: " + evt.data);
-                    echo_websocket.close();
-                };
-                echo_websocket.onerror = function(evt) {
-                    writeToScreen('<span style="color: red;">ERROR</span>' + evt.data);
-                    echo_websocket.close();
-                };
-
-            }//send_echo
-
-            function doSend(message) {
-                echo_websocket.send(message);
-                writeToScreen("Send Message: " + message);
-            }
-
-            function writeToScreen(message) {
-                var pre = document.createElement("p");
-                pre.style.wordWrap = "break-word";
-                pre.innerHTML = message;
-                output.appendChild(pre);
-            }
-            window.addEventListener("load", init, false);
-        </script>
-
-
+                  
+        </script>               
     </head>
     <body>
         <h1> JQuery Test. Invocaci&oacute;n AJAX.</h1>
