@@ -28,6 +28,7 @@ public class ProgrammaticEchoServer extends Endpoint {
             public void onMessage(String text) {
 
                 try {
+                    System.out.println("Programmatic::On message in echo");
                     mySession.getBasicRemote().sendText("I got this (" + text + ") "
                             + " so, I am sending it back");
                 } catch (IOException ex) {

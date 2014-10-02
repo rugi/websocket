@@ -15,7 +15,7 @@ import javax.websocket.server.ServerEndpointConfig;
 
 /**
  *
- * @author rugi
+ * @author 
  */
 public class ProgrammaticEchoServerAppConfig implements ServerApplicationConfig{
 
