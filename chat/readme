@@ -1,0 +1,7 @@
+WEBSOCKET. Ejemplo de CHAT
+
+Ejemplo sencillo de chat usando Websocket.
+Este ejemplo se basa en el ejemplo de 
+https://github.com/arun-gupta
+
+https://github.com/javaee-samples/javaee7-samples/tree/master/websocket/chat
