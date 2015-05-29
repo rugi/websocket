@@ -11,6 +11,7 @@ Proyecto con un ejemplo sencillo, el endpoint es programado, no usa anotaciones.
 ### comparacion
 Proyecto con un ejemplo sencillo, el endpoint esta construido con anotaciones.
 
-
+### chat
+Proyecto con ejemplo de CHAT. Basado en código de Arun Gupta.
 
 
