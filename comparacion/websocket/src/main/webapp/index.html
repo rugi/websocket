@@ -12,7 +12,7 @@
             function invoque_ajax() {
                 var texto = document.forms[0].textId.value;
                 alert(texto);
-                var _url= "http://" + document.location.host + document.location.pathname + "echo";
+                var _url= "http://" + document.location.host + document.location.pathname.replace("index.html","") + "echo";
                 alert("Ajax invocation:"+_url);
                 // Using the core $.ajax() method
                 $.ajax({
