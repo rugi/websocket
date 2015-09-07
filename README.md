@@ -14,4 +14,8 @@ Proyecto con un ejemplo sencillo, el endpoint esta construido con anotaciones.
 ### chat
 Proyecto con ejemplo de CHAT. Basado en código de Arun Gupta.
 
+### Cliente Swing para el CHAT
+cliente-swing.
+Cliente Swing para conectarse al endpoint del chat.
+
 
