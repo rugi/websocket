@@ -18,7 +18,7 @@ public class Main {
 
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                JFrame frame = new JFrame("HelloWorldSwing");
+                JFrame frame = new JFrame("WS Chat");
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
                 WSChat chat = new WSChat();
