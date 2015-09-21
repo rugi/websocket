@@ -7,6 +7,8 @@ package org.codigoambar.websocket.ui;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -38,12 +40,27 @@ public class WSChatArea extends JPanel {
         splitPane.setOneTouchExpandable(true);
         splitPane.setDividerLocation(150);
 
-//Provide minimum sizes for the two components in the split pane
+        //Provide minimum sizes for the two components in the split pane
         Dimension minimumSize = new Dimension(100, 50);
 
         this.setLayout(new BorderLayout());
         this.add(splitPane, BorderLayout.CENTER);
         this.add(message, BorderLayout.SOUTH);
+        initEvents();
         this.repaint();
+    }
+    
+    private void initEvents(){
+        // el ENTER a this.mesage se debe reflejar en el rich Area.
+        this.message.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("-----event  ----");
+                chat.append(message.getText());
+                chat.append("\n");
+                message.setText("");
+            }
+        });
     }
 }

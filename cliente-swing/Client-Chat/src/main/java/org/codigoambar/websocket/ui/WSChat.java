@@ -19,7 +19,8 @@ public class WSChat extends JPanel {
 
     private JLabel statusBar;
     private WSAddressBar address;
-    private WSChatArea  chat ;
+    private WSChatArea chat;
+
     public WSChat() {
         super();
         TitledBorder title;
@@ -27,7 +28,7 @@ public class WSChat extends JPanel {
         this.statusBar = new JLabel("No conectado.");
         this.statusBar.setBorder(title);
         this.address = new WSAddressBar();
-        this.chat    = new WSChatArea();
+        this.chat = new WSChatArea();
         this.setLayout(new BorderLayout());
         this.add(this.address, BorderLayout.NORTH);
         this.add(this.chat, BorderLayout.CENTER);
